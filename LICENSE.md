@@ -51,7 +51,9 @@ You may add Your own copyright statement to Your modifications and may provide a
 END OF TERMS AND CONDITIONS
 
 Copyright Zinc Engine AllMesi
+
 forked from kadedev
+
 [original game](https://www.newgrounds.com/portal/view/770371) by ninjamuffin99
 
 Licensed under the Apache License, Version 2.0 (the "License");
