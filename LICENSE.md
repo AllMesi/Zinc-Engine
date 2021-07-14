@@ -50,7 +50,7 @@ You may add Your own copyright statement to Your modifications and may provide a
 
 END OF TERMS AND CONDITIONS
 
-Copyright Zinc Engine AllMesi
+Copyright 2021 AllMesi
 
 forked from kadedev
 
