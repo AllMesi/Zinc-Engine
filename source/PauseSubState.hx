@@ -107,7 +107,7 @@ class PauseSubState extends MusicBeatSubstate
 		super.update(elapsed);
 
 		if (PlayState.instance.useVideo)
-			menuItems.remove('Resume');
+			menuItems.remove('Unpause');
 
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 
@@ -156,7 +156,7 @@ class PauseSubState extends MusicBeatSubstate
 				{
 					grpMenuShit.clear();
 
-					menuItems = ['Restart Song', 'Exit to menu'];
+					menuItems = ['Unpause', 'Restart', 'Exit'];
 
 					for (i in 0...menuItems.length)
 					{
@@ -181,7 +181,7 @@ class PauseSubState extends MusicBeatSubstate
 				{
 					grpMenuShit.clear();
 
-					menuItems = ['Restart Song', 'Exit to menu'];
+					menuItems = ['Unpause', 'Restart', 'Exit'];
 
 					for (i in 0...menuItems.length)
 					{

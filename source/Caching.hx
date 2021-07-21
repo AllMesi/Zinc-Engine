@@ -75,6 +75,7 @@ class Caching extends MusicBeatState
         }
 
         super.update(elapsed);
+        add(text);
     }
 
 

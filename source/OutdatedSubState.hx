@@ -86,7 +86,7 @@ class OutdatedSubState extends MusicBeatState
 	{
 		if (controls.ACCEPT)
 		{
-			fancyOpenURL("https://Zincdev.github.io/Zinc-Engine/changelogs/changelog-" + needVer);
+			fancyOpenURL("https://ZincDev.github.io/Zinc-Engine/changelogs/changelog-" + needVer);
 		}
 		if (controls.BACK)
 		{

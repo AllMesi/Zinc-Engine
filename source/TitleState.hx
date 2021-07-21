@@ -414,12 +414,12 @@ class TitleState extends MusicBeatState
 			// credTextShit.screenCenter();
 			case 5:
 				if (Main.watermarks)
-					createCoolText(['im', 'bored']);
+					createCoolText(['Zinc', 'engine']);
 				else
 					createCoolText(['In Partnership', 'with']);
 			case 7:
 				if (Main.watermarks)
-					addMoreText('so i made this');
+					addMoreText('');
 				else
 				{
 					addMoreText('Newgrounds');
@@ -452,9 +452,6 @@ class TitleState extends MusicBeatState
 			// credTextShit.text += '\nNight';
 			case 15:
 				addMoreText('Funkin'); // credTextShit.text += '\nFunkin';
-
-			case 16:
-				addMoreText('Zinc Engine');
 			case 17:
 				skipIntro();
 		}

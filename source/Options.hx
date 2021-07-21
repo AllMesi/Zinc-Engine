@@ -157,7 +157,7 @@ class GhostTapOption extends Option
 
 	private override function updateDisplay():String
 	{
-		return FlxG.save.data.ghost ? "Ghost Tapping" : "No Ghost Tapping";
+		return FlxG.save.data.ghost ? "Ghost Tapping True" : "Ghost Tapping False";
 	}
 }
 
@@ -177,7 +177,7 @@ class AccuracyOption extends Option
 
 	private override function updateDisplay():String
 	{
-		return "Accuracy " + (!FlxG.save.data.accuracyDisplay ? "off" : "on");
+		return "Accuracy " + (!FlxG.save.data.accuracyDisplay ? "false" : "true");
 	}
 }
 
@@ -197,7 +197,7 @@ class SongPositionOption extends Option
 
 	private override function updateDisplay():String
 	{
-		return "Song Position " + (!FlxG.save.data.songPosition ? "off" : "on");
+		return "Song Position " + (!FlxG.save.data.songPosition ? "false" : "true");
 	}
 }
 
@@ -217,7 +217,7 @@ class DistractionsAndEffectsOption extends Option
 
 	private override function updateDisplay():String
 	{
-		return "Distractions " + (!FlxG.save.data.distractions ? "off" : "on");
+		return "Distractions " + (!FlxG.save.data.distractions ? "false" : "true");
 	}
 }
 
@@ -237,7 +237,7 @@ class ResetButtonOption extends Option
 
 	private override function updateDisplay():String
 	{
-		return "Reset Button " + (!FlxG.save.data.resetButton ? "off" : "on");
+		return "Reset Button " + (!FlxG.save.data.resetButton ? "false" : "true");
 	}
 }
 
@@ -257,7 +257,7 @@ class FlashingLightsOption extends Option
 
 	private override function updateDisplay():String
 	{
-		return "Flashing Lights " + (!FlxG.save.data.flashing ? "off" : "on");
+		return "Flashing Lights " + (!FlxG.save.data.flashing ? "false" : "true");
 	}
 }
 
@@ -355,7 +355,7 @@ class FPSOption extends Option
 
 	private override function updateDisplay():String
 	{
-		return "FPS Counter " + (!FlxG.save.data.fps ? "off" : "on");
+		return "FPS Counter " + (!FlxG.save.data.fps ? "false" : "true");
 	}
 }
 
@@ -376,7 +376,7 @@ class ScoreScreen extends Option
 
 	private override function updateDisplay():String
 	{
-		return (FlxG.save.data.scoreScreen ? "Show Score Screen" : "No Score Screen");
+		return (FlxG.save.data.scoreScreen ? "Score Screen True" : "Score Screen False");
 	}
 }
 
@@ -500,7 +500,7 @@ class RainbowFPSOption extends Option
 
 	private override function updateDisplay():String
 	{
-		return "FPS Rainbow " + (!FlxG.save.data.fpsRain ? "off" : "on");
+		return "FPS Rainbow " + (!FlxG.save.data.fpsRain ? "false" : "true");
 	}
 }
 
@@ -521,7 +521,7 @@ class Optimization extends Option
 	
 		private override function updateDisplay():String
 		{
-			return "Optimization " + (FlxG.save.data.optimize ? "ON" : "OFF");
+			return "Optimization " + (FlxG.save.data.optimize ? "true" : "false");
 		}
 }
 
@@ -542,7 +542,7 @@ class NPSDisplayOption extends Option
 
 	private override function updateDisplay():String
 	{
-		return "NPS Display " + (!FlxG.save.data.npsDisplay ? "off" : "on");
+		return "NPS Display " + (!FlxG.save.data.npsDisplay ? "false" : "true");
 	}
 }
 
@@ -609,28 +609,6 @@ class CustomizeGameplay extends Option
 	}
 }
 
-class WatermarkOption extends Option
-{
-	public function new(desc:String)
-	{
-		super();
-		description = desc;
-	}
-
-	public override function press():Bool
-	{
-		Main.watermarks = !Main.watermarks;
-		FlxG.save.data.watermark = Main.watermarks;
-		display = updateDisplay();
-		return true;
-	}
-
-	private override function updateDisplay():String
-	{
-		return "Watermarks " + (Main.watermarks ? "on" : "off");
-	}
-}
-
 class OffsetMenu extends Option
 {
 	public function new(desc:String)
@@ -676,7 +654,7 @@ class BotPlay extends Option
 	}
 	
 	private override function updateDisplay():String
-		return "BotPlay " + (FlxG.save.data.botplay ? "on" : "off");
+		return "BotPlay " + (FlxG.save.data.botplay ? "true" : "false");
 }
 
 class CamZoomOption extends Option
@@ -695,6 +673,6 @@ class CamZoomOption extends Option
 
 	private override function updateDisplay():String
 	{
-		return "Camera Zoom " + (!FlxG.save.data.camzoom ? "off" : "on");
+		return "Camera Zoom " + (!FlxG.save.data.camzoom ? "false" : "true");
 	}
 }

@@ -107,7 +107,7 @@ class Ratings
         // I HATE THIS IF CONDITION
         // IF LEMON SEES THIS I'M SORRY :(
 
-        //trace('Hit Info\nDifference: ' + noteDiff + '\nZone: ' + Conductor.safeZoneOffset * 1.5 + "\nTS: " + customTimeScale + "\nLate: " + 155 * customTimeScale);
+        trace('Hit Info\nDifference: ' + noteDiff + '\nZone: ' + Conductor.safeZoneOffset * 1.5 + "\nTS: " + customTimeScale + "\nLate: " + 155 * customTimeScale);
 
         if (FlxG.save.data.botplay && !PlayState.loadRep)
             return "sick"; // FUNNY
@@ -138,19 +138,17 @@ class Ratings
             rating = "shit";
         return rating;
     }
-    public static function CalculateRanking(score:Int,scoreDef:Int,nps:Int,maxNPS:Int,accuracy)
+    public static function CalculateRanking(score:Int,scoreDef:Int,nps:Int,maxNPS:Int,health_stat,accuracy)
         {
-            var healthTxt;
             return
-             (FlxG.save.data.npsDisplay ?																							                            //NPS Toggle\\
-             "NPS: " + nps + " // MaxNPS: " + maxNPS + "" + (!PlayStateChangeables.botPlay || PlayState.loadRep ? " // " : "") : "") +							//NPS\\
-             (!PlayStateChangeables.botPlay || PlayState.loadRep ? "Score:" + (Conductor.safeFrames != 10 ? score + " (" + scoreDef + ")" : "" + score) + 		//Score\\
-             (FlxG.save.data.accuracyDisplay ?																						                            //Accuracy Toggle\\
-             " // Misses:" + PlayState.misses + 																				                                //Misses / Combo Breaks\\
-             " // Accuracy:" + (PlayStateChangeables.botPlay && !PlayState.loadRep ? "N/A" : HelperFunctions.truncateFloat(accuracy, 2) + " %") +               //Accuracy\\
-             " // Health:"  + PlayState.healthTxt +                                                                                                                      //Health\\
-             " // " + PlayState.highestCombo +  				                                                                                                //Highest Combo\\
-             " // " + GenerateLetterRank(accuracy) : "") :  "\n");  																		                    //Letter Rank\\
+             (FlxG.save.data.npsDisplay ?																							                           
+             "NPS: " + nps + " // MaxNPS: " + maxNPS + "" + (!PlayStateChangeables.botPlay || PlayState.loadRep ? " // " : "") : "") +							
+             (!PlayStateChangeables.botPlay || PlayState.loadRep ?  "Score:" + (Conductor.safeFrames != 10 ? score + " (" + scoreDef + ")" : "" + score) +	
+             (FlxG.save.data.accuracyDisplay ?																						                           
+             " // Misses:" + PlayState.misses + 																				                              
+             " // Accuracy:" + (PlayStateChangeables.botPlay && !PlayState.loadRep ? "N/A" : HelperFunctions.truncateFloat(accuracy, 2) + " %") +          
+            // " // Health:" + PlayState.health_stat +                                                                                                  
+             " // " + GenerateLetterRank(accuracy) : "" ) : "");  																		                 
         }
 
 }

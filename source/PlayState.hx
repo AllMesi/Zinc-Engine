@@ -139,6 +139,7 @@ class PlayState extends MusicBeatState
 
 	private var gfSpeed:Int = 1;
 	public var health:Float = 1; //making public because sethealth doesnt work without it
+	public static var health_stat:Float = 1; 
 	private var combo:Int = 0;
 	public static var misses:Int = 0;
 	public static var campaignMisses:Int = 0;
@@ -326,7 +327,8 @@ class PlayState extends MusicBeatState
 		FlxG.cameras.reset(camGame);
 		FlxG.cameras.add(camHUD);
 
-		FlxCamera.defaultCameras = [camGame];
+		FlxCamera.defaultCameras= [camGame];
+		trace('"`FlxCamera.defaultCameras` is deprecated, use `FlxG.cameras.setDefaultDrawTarget` instead" - FlxCamera.defaultCameras = [camGame]; 2021');
 
 		persistentUpdate = true;
 		persistentDraw = true;
@@ -2014,7 +2016,7 @@ class PlayState extends MusicBeatState
 
 		super.update(elapsed);
 
-		scoreTxt.text = Ratings.CalculateRanking(songScore,songScoreDef,nps,maxNPS,accuracy);
+		scoreTxt.text = Ratings.CalculateRanking(songScore,songScoreDef,nps,maxNPS,health_stat,accuracy);
 
 		var lengthInPx = scoreTxt.textField.length * scoreTxt.frameHeight; // bad way but does more or less a better job
 
@@ -2077,6 +2079,8 @@ class PlayState extends MusicBeatState
 
 		if (health > 2)
 			health = 2;
+		if (health_stat > 2)
+			health_stat = 2;
 		if (healthBar.percent < 20)
 			iconP1.animation.curAnim.curFrame = 1;
 		else
@@ -2623,6 +2627,7 @@ class PlayState extends MusicBeatState
 									else
 									{
 										health -= 0.075;
+										health_stat -= 0.075;
 										vocals.volume = 0;
 										if (theFunne)
 											noteMiss(daNote.noteData, daNote);
@@ -2631,6 +2636,7 @@ class PlayState extends MusicBeatState
 								else
 								{
 									health -= 0.075;
+									health_stat -= 0.075;
 									vocals.volume = 0;
 									if (theFunne)
 										noteMiss(daNote.noteData, daNote);
@@ -2868,6 +2874,7 @@ class PlayState extends MusicBeatState
 					combo = 0;
 					misses++;
 					health -= 0.2;
+					health_stat -= 0.2;
 					ss = false;
 					shits++;
 					if (FlxG.save.data.accuracyMod == 0)
@@ -2876,6 +2883,7 @@ class PlayState extends MusicBeatState
 					daRating = 'bad';
 					score = 0;
 					health -= 0.06;
+					health_stat -= 0.06;
 					ss = false;
 					bads++;
 					if (FlxG.save.data.accuracyMod == 0)
@@ -2887,11 +2895,15 @@ class PlayState extends MusicBeatState
 					goods++;
 					if (health < 2)
 						health += 0.04;
+					if (health_stat < 2)
+						health_stat += 0.04;
 					if (FlxG.save.data.accuracyMod == 0)
 						totalNotesHit += 0.75;
 				case 'sick':
 					if (health < 2)
 						health += 0.1;
+					if (health_stat < 2)
+						health_stat += 0.1;
 					if (FlxG.save.data.accuracyMod == 0)
 						totalNotesHit += 1;
 					sicks++;
@@ -3440,6 +3452,7 @@ class PlayState extends MusicBeatState
 		if (!boyfriend.stunned)
 		{
 			health -= 0.04;
+			health_stat -= 0.04;
 			if (combo > 5 && gf.animOffsets.exists('sad'))
 			{
 				gf.playAnim('sad');

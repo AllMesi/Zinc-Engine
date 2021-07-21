@@ -33,21 +33,21 @@ class StoryMenuState extends MusicBeatState
 		['Satin Panties', "High", "Milf"],
 		['Cocoa', 'Eggnog', 'Winter Horrorland'],
 		['Senpai', 'Roses', 'Thorns'],
-		['Test']
+		['ghost', 'Test']
 	];
 	var curDifficulty:Int = 1;
 
 	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true, true];
 
 	var weekCharacters:Array<Dynamic> = [
-		['', 'bf', 'gf'],
-		['dad', 'bf', 'gf'],
-		['spooky', 'bf', 'gf'],
-		['pico', 'bf', 'gf'],
-		['mom', 'bf', 'gf'],
-		['parents-christmas', 'bf', 'gf'],
-		['senpai', 'bf', 'gf'],
-		['pico', 'bf', 'gf', 'dad']
+		['','bf','gf'],
+		['dad','bf','gf'],
+		['spooky','bf','gf'],
+		['pico','bf','gf'],
+		['mom','bf','gf'],
+		['parents-christmas','bf','gf'],
+		['senpai','bf','gf'],
+		['pico','bf','gf','dad','spooky','mom','parents-christmas','senpai']
 	];
 
 	var weekNames:Array<String> = [
@@ -58,7 +58,7 @@ class StoryMenuState extends MusicBeatState
 		"MOMMY MUST MURDER",
 		"RED SNOW",
 		"Hating Simulator ft. Moawling",
-		'shit week lol'
+		'a'
 	];
 
 	var txtWeekTitle:FlxText;
@@ -188,7 +188,7 @@ class StoryMenuState extends MusicBeatState
 		add(yellowBG);
 		add(grpWeekCharacters);
 
-		txtTracklist = new FlxText(FlxG.width * 0.05, yellowBG.x + yellowBG.height + 100, 0, "Tracks", 32);
+		txtTracklist = new FlxText(FlxG.width * 0.05, yellowBG.x + yellowBG.height + 100, 0, "Songs", 32);
 		txtTracklist.alignment = CENTER;
 		txtTracklist.font = rankText.font;
 		txtTracklist.color = 0xFFe55777;
@@ -420,7 +420,7 @@ class StoryMenuState extends MusicBeatState
 		grpWeekCharacters.members[1].setCharacter(weekCharacters[curWeek][1]);
 		grpWeekCharacters.members[2].setCharacter(weekCharacters[curWeek][2]);
 
-		txtTracklist.text = "Tracks\n";
+		txtTracklist.text = "Songs\n";
 		var stringThing:Array<String> = weekData[curWeek];
 
 		for (i in stringThing)
